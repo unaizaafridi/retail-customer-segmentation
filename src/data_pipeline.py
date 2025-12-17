@@ -52,7 +52,12 @@ def handle_missing_customer(df: pd.DataFrame) -> pd.DataFrame:
     """
     Fill missing CustomerID as 'ANONYMOUS' instead of dropping rows.
     """
-    df["CustomerID"].fillna("ANONYMOUS", inplace=True)
+    # Step 1: Convert to string
+    df["CustomerID"] = df["CustomerID"].astype("str")
+
+    # Step 2: Replace "nan" or empty strings with NaN, then fill
+    df["CustomerID"] = df["CustomerID"].replace(["nan", ""], np.nan)
+    df["CustomerID"] = df["CustomerID"].fillna("ANONYMOUS")
     return df
 
 # ---------------------------
