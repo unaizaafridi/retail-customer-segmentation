@@ -1,4 +1,5 @@
-## 📦 Dataset Description
+# Step 1: 
+## Dataset Description
 
 The dataset contains **transaction-level retail sales data**, which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail.The company mainly sells unique all-occasion gifts. Many customers of the company are wholesalers.
 
@@ -36,3 +37,58 @@ This dataset closely resembles real-world retail transaction data and is well-su
 - Customer segmentation using clustering techniques  
 - Revenue trend and seasonality analysis  
 - Business-driven decision making
+
+---
+
+# Step 2:
+
+## Retail Data Cleaning Pipeline
+
+This pipeline performs **end-to-end cleaning and preparation** of the retail dataset, designed to reflect **real-world ETL and data engineering practices**.
+
+### Pipeline Steps
+
+1. **Load Raw Data**  
+   - Load the original CSV from `/data/raw`  
+   - Preserve a raw copy for traceability
+
+2. **Schema Validation & Type Conversion**  
+   - Ensure all required columns are present  
+   - Convert types:
+     - `InvoiceDate → datetime`
+     - `CustomerID → string`
+
+3. **Flag Cancellations**  
+   - Add a boolean column `IsCancellation` for invoices starting with 'C'  
+   - Allows analysis of returns/cancellations without removing data
+
+4. **Handle Missing CustomerID**  
+   - Fill missing `CustomerID` values with `"ANONYMOUS"`  
+   - Preserves data while differentiating unregistered customers
+
+5. **Handle Negative Quantity/UnitPrice**  
+   - Preserve negative values as they indicate returns or cancellations  
+   - Analysis can account for sign when computing revenue
+
+6. **Feature Engineering**  
+   - Compute `TotalPrice = Quantity × UnitPrice`  
+   - Extract `Year`, `Month`, and `Day` from `InvoiceDate`
+
+7. **Deduplication**  
+   - Remove only **exact duplicate rows**  
+   - Ensures data integrity without losing unique transactions
+
+8. **Data Quality Logging**  
+   - Report rows before and after cleaning  
+   - Count cancellations and anonymous customers  
+   - Ensures traceability and accountability
+
+9. **Persist Cleaned Data**  
+   - Save cleaned dataset to `/data/processed/clean_retail.csv`  
+   - Ready for downstream analysis or modeling
+
+### Highlights
+
+- ETL-style separation → raw → validated → enriched → cleaned  
+- Preserves important business signals (returns, cancellations, anonymous customers)  
+
