@@ -1,4 +1,5 @@
 # Step 1: 
+
 ## Dataset Description
 
 The dataset contains **transaction-level retail sales data**, which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail.The company mainly sells unique all-occasion gifts. Many customers of the company are wholesalers.
@@ -92,3 +93,23 @@ This pipeline performs **end-to-end cleaning and preparation** of the retail dat
 - ETL-style separation → raw → validated → enriched → cleaned  
 - Preserves important business signals (returns, cancellations, anonymous customers)  
 
+---
+
+# Step 3
+
+## Exploratory Data Analysis (EDA)
+
+### Customer Behavior Analysis
+Analyzed purchasing patterns using metrics such as **purchase frequency, average order value (AOV), and customer lifetime value (CLV)** to understand customer engagement and revenue contribution.
+
+### Product Analysis
+Evaluated product-level performance to identify **top-selling products**, key revenue drivers, and demand trends across the catalog.
+
+### Cancellation Analysis
+Examined cancelled transactions to identify **products and customers with high cancellation frequency**, highlighting potential issues in product quality or order fulfillment.
+
+### Geographical Analysis
+Analyzed revenue distribution across countries to assess **market concentration** and identify regions with strong sales performance and expansion potential.
+
+### Customer Segmentation
+Segmented customers based on **CLV, frequency, and AOV** to distinguish high-value loyal customers from lower-engagement segments, supporting targeted marketing and retention strategies.
