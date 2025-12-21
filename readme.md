@@ -1,3 +1,12 @@
+## Dataset Source
+
+The dataset used in this project is the **Online Retail Dataset**, obtained from Kaggle.  
+It contains transactional data from a UK-based online retail store, including invoices, products, quantities, prices, customer IDs, and countries.
+
+**Source:**  
+🔗 https://www.kaggle.com/datasets/ulrikthygepedersen/online-retail-dataset/data
+
+
 # Step 1: 
 
 ## Dataset Description
